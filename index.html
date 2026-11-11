@@ -14,6 +14,7 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: Arial, sans-serif;
       background: #080b12;
@@ -247,7 +248,6 @@
   <main>
     <section class="hero" id="inicio">
       <div class="tag">MINECRAFT BEDROCK EDITION</div>
-
       <h1>KIKA <span>NETWORKS</span></h1>
 
       <p>
@@ -277,28 +277,19 @@
         <div class="card">
           <div class="emoji">🌍</div>
           <h3>Un mundo propio</h3>
-          <p>
-            Explorá, construí y creá aventuras
-            con tus amigos.
-          </p>
+          <p>Explorá, construí y creá aventuras con tus amigos.</p>
         </div>
 
         <div class="card">
           <div class="emoji">⚡</div>
           <h3>Experiencia estable</h3>
-          <p>
-            Trabajamos para ofrecer una experiencia
-            fluida y confiable.
-          </p>
+          <p>Trabajamos para ofrecer una experiencia fluida y confiable.</p>
         </div>
 
         <div class="card">
           <div class="emoji">🤝</div>
           <h3>Comunidad</h3>
-          <p>
-            Compartí aventuras y construí
-            recuerdos con otros jugadores.
-          </p>
+          <p>Compartí aventuras y construí recuerdos con otros jugadores.</p>
         </div>
       </div>
     </section>
@@ -311,10 +302,7 @@
 
       <div class="status-box">
         <h3>🎮 Minecraft Bedrock</h3>
-
-        <div class="status">
-          ● PENDIENTE DE CONFIGURACIÓN
-        </div>
+        <div class="status">● PENDIENTE DE CONFIGURACIÓN</div>
 
         <div class="server-info">
           Dirección: Próximamente<br>
@@ -347,419 +335,417 @@
     Construido para nuestra comunidad.
   </footer>
 
-</body>
-</html>
+  <!-- KIKA HOST - PANEL PRINCIPAL V1.0 -->
 
-<!-- =====================================
-     KIKA HOST - PANEL PRINCIPAL V1.0
-===================================== -->
+  <section id="kika-host">
+    <div class="kh-wrapper">
 
-<section id="kika-host">
-  <div class="kh-wrapper">
+      <header class="kh-top">
+        <div>
+          <span class="kh-brand">KIKA NETWORKS</span>
+          <h2>KIKA HOST</h2>
+          <p>Tu comunidad. Tus servidores. Tu mundo.</p>
+        </div>
+        <span class="kh-private">PRIVATE HOST</span>
+      </header>
 
-    <header class="kh-top">
-      <div>
-        <span class="kh-brand">KIKA NETWORKS</span>
-        <h2>KIKA HOST</h2>
-        <p>Tu comunidad. Tus servidores. Tu mundo.</p>
-      </div>
-      <span class="kh-private">PRIVATE HOST</span>
-    </header>
-
-    <div class="kh-overview">
-      <div class="kh-stat">
-        <span>Servidores</span>
-        <strong id="kh-total">0</strong>
-      </div>
-      <div class="kh-stat">
-        <span>Activos (demo)</span>
-        <strong id="kh-active">0</strong>
-      </div>
-      <div class="kh-stat">
-        <span>Plataforma</span>
-        <strong>BEDROCK</strong>
-      </div>
-    </div>
-
-    <div class="kh-card">
-      <h3>＋ Crear servidor</h3>
-      <p>Configurá tu próximo mundo de Minecraft.</p>
-
-      <label for="kh-name">Nombre del servidor</label>
-      <input id="kh-name" maxlength="24"
-        placeholder="Ejemplo: Mi Mundo">
-
-      <label for="kh-type">Tipo de servidor</label>
-      <select id="kh-type">
-        <option value="Bedrock">Minecraft Bedrock</option>
-      </select>
-
-      <button class="kh-primary" onclick="KH.create()">
-        CREAR SERVIDOR
-      </button>
-    </div>
-
-    <div class="kh-card">
-      <div class="kh-section-title">
-        <h3>Mis servidores</h3>
-        <span class="kh-count" id="kh-count">0 servidores</span>
-      </div>
-
-      <div id="kh-list">
-        <div class="kh-empty">
-          <span>🎮</span>
-          <p>Todavía no tenés servidores.</p>
-          <small>Creá tu primer servidor para comenzar.</small>
+      <div class="kh-overview">
+        <div class="kh-stat">
+          <span>Servidores</span>
+          <strong id="kh-total">0</strong>
+        </div>
+        <div class="kh-stat">
+          <span>Activos (demo)</span>
+          <strong id="kh-active">0</strong>
+        </div>
+        <div class="kh-stat">
+          <span>Plataforma</span>
+          <strong>BEDROCK</strong>
         </div>
       </div>
+
+      <div class="kh-card">
+        <h3>＋ Crear servidor</h3>
+        <p>Configurá tu próximo mundo de Minecraft.</p>
+
+        <label for="kh-name">Nombre del servidor</label>
+        <input id="kh-name" maxlength="24"
+          placeholder="Ejemplo: Mi Mundo">
+
+        <label for="kh-type">Tipo de servidor</label>
+        <select id="kh-type">
+          <option value="Bedrock">Minecraft Bedrock</option>
+        </select>
+
+        <button class="kh-primary" onclick="KH.create()">
+          CREAR SERVIDOR
+        </button>
+      </div>
+
+      <div class="kh-card">
+        <div class="kh-section-title">
+          <h3>Mis servidores</h3>
+          <span class="kh-count" id="kh-count">0 servidores</span>
+        </div>
+
+        <div id="kh-list">
+          <div class="kh-empty">
+            <span>🎮</span>
+            <p>Todavía no tenés servidores.</p>
+            <small>Creá tu primer servidor para comenzar.</small>
+          </div>
+        </div>
+      </div>
+
+      <footer class="kh-footer">
+        <span>KIKA HOST V1.0</span>
+        <p>Panel de demostración · Infraestructura real pendiente</p>
+      </footer>
+
     </div>
+  </section>
 
-    <footer class="kh-footer">
-      <span>KIKA HOST V1.0</span>
-      <p>Panel de demostración · Infraestructura real pendiente</p>
-    </footer>
-
-  </div>
-</section>
-
-<style>
-#kika-host {
-  background: #070c09;
-  color: #f3fff6;
-  padding: 55px 16px;
-  font-family: Arial, sans-serif;
-}
-
-.kh-wrapper {
-  max-width: 950px;
-  margin: auto;
-}
-
-.kh-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-.kh-brand {
-  color: #39ed91;
-  letter-spacing: 4px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-.kh-top h2 {
-  font-size: 40px;
-  margin: 12px 0;
-  color: #39ed91;
-}
-
-.kh-top p,
-.kh-card p {
-  color: #9eafa4;
-}
-
-.kh-private {
-  border: 1px solid #39ed91;
-  color: #39ed91;
-  padding: 9px 13px;
-  border-radius: 30px;
-  font-size: 10px;
-  letter-spacing: 1px;
-}
-
-.kh-overview {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.kh-stat {
-  background: #101a13;
-  border: 1px solid #203b2a;
-  border-radius: 12px;
-  padding: 18px;
-}
-
-.kh-stat span {
-  display: block;
-  color: #9eafa4;
-  font-size: 12px;
-}
-
-.kh-stat strong {
-  display: block;
-  margin-top: 10px;
-  color: #39ed91;
-  font-size: 23px;
-}
-
-.kh-card {
-  background: #101a13;
-  border: 1px solid #244b32;
-  border-radius: 16px;
-  padding: 23px;
-  margin-bottom: 20px;
-}
-
-.kh-card h3 {
-  margin-top: 0;
-}
-
-.kh-card label {
-  display: block;
-  margin-top: 17px;
-  margin-bottom: 8px;
-  color: #c4d7ca;
-  font-size: 13px;
-}
-
-.kh-card input,
-.kh-card select {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 14px;
-  background: #080f0a;
-  border: 1px solid #31563c;
-  color: white;
-  border-radius: 9px;
-  outline: none;
-}
-
-.kh-primary {
-  width: 100%;
-  padding: 15px;
-  margin-top: 20px;
-  background: #39ed91;
-  color: #06120a;
-  border: none;
-  border-radius: 9px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.kh-primary:active {
-  opacity: .8;
-}
-
-.kh-section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.kh-count {
-  color: #39ed91;
-  font-size: 12px;
-}
-
-.kh-empty {
-  text-align: center;
-  padding: 35px 10px;
-}
-
-.kh-empty span {
-  font-size: 40px;
-}
-
-.kh-empty small {
-  color: #82968a;
-}
-
-.kh-server {
-  background: #080f0a;
-  border: 1px solid #294d35;
-  padding: 17px;
-  border-radius: 12px;
-  margin-top: 13px;
-}
-
-.kh-server-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.kh-server-name {
-  color: #39ed91;
-  font-weight: bold;
-}
-
-.kh-server-status {
-  color: #f3d477;
-  font-size: 11px;
-}
-
-.kh-server-actions {
-  display: flex;
-  gap: 9px;
-  flex-wrap: wrap;
-  margin-top: 15px;
-}
-
-.kh-server-actions button {
-  padding: 10px 13px;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.kh-toggle {
-  background: #39ed91;
-  color: #06120a;
-}
-
-.kh-delete {
-  background: #542525;
-  color: white;
-}
-
-.kh-footer {
-  text-align: center;
-  padding: 25px 10px;
-  color: #39ed91;
-  font-size: 11px;
-}
-
-.kh-footer p {
-  color: #82968a;
-}
-
-@media(max-width: 520px) {
-  .kh-overview {
-    grid-template-columns: 1fr;
-  }
-
-  .kh-top h2 {
-    font-size: 32px;
-  }
-
-  .kh-card {
-    padding: 17px;
-  }
-}
-</style>
-
-<script>
-const KH = (() => {
-
-  let servers = [];
-
-  function render() {
-    const list = document.getElementById("kh-list");
-    if (!list) return;
-
-    const active = servers.filter(
-      server => server.active
-    ).length;
-
-    document.getElementById("kh-total").textContent =
-      servers.length;
-
-    document.getElementById("kh-active").textContent =
-      active;
-
-    document.getElementById("kh-count").textContent =
-      servers.length + (servers.length === 1
-        ? " servidor" : " servidores");
-
-    if (!servers.length) {
-      list.innerHTML = `
-        <div class="kh-empty">
-          <span>🎮</span>
-          <p>Todavía no tenés servidores.</p>
-          <small>Creá tu primer servidor para comenzar.</small>
-        </div>`;
-      return;
+  <style>
+    #kika-host {
+      background: #070c09;
+      color: #f3fff6;
+      padding: 55px 16px;
+      font-family: Arial, sans-serif;
     }
 
-    list.replaceChildren();
+    #kika-host .kh-wrapper {
+      max-width: 950px;
+      margin: auto;
+    }
 
-    servers.forEach((server, index) => {
-      const card = document.createElement("div");
-      card.className = "kh-server";
+    #kika-host .kh-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
 
-      const head = document.createElement("div");
-      head.className = "kh-server-head";
+    #kika-host .kh-brand {
+      color: #39ed91;
+      letter-spacing: 4px;
+      font-size: 11px;
+      font-weight: bold;
+    }
 
-      const name = document.createElement("span");
-      name.className = "kh-server-name";
-      name.textContent = server.name;
+    #kika-host .kh-top h2 {
+      font-size: 40px;
+      margin: 12px 0;
+      color: #39ed91;
+    }
 
-      const status = document.createElement("span");
-      status.className = "kh-server-status";
-      status.textContent = server.active
-        ? "ACTIVO (DEMO)" : "DETENIDO (DEMO)";
+    #kika-host .kh-top p,
+    #kika-host .kh-card p {
+      color: #9eafa4;
+    }
 
-      head.append(name, status);
+    #kika-host .kh-private {
+      border: 1px solid #39ed91;
+      color: #39ed91;
+      padding: 9px 13px;
+      border-radius: 30px;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
 
-      const info = document.createElement("p");
-      info.textContent = "Minecraft Bedrock";
+    #kika-host .kh-overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
 
-      const actions = document.createElement("div");
-      actions.className = "kh-server-actions";
+    #kika-host .kh-stat {
+      background: #101a13;
+      border: 1px solid #203b2a;
+      border-radius: 12px;
+      padding: 18px;
+    }
 
-      const toggle = document.createElement("button");
-      toggle.className = "kh-toggle";
-      toggle.textContent = server.active
-        ? "DETENER (DEMO)" : "INICIAR (DEMO)";
-      toggle.addEventListener("click", () => {
-        servers[index].active = !servers[index].active;
-        render();
-      });
+    #kika-host .kh-stat span {
+      display: block;
+      color: #9eafa4;
+      font-size: 12px;
+    }
 
-      const remove = document.createElement("button");
-      remove.className = "kh-delete";
-      remove.textContent = "ELIMINAR";
-      remove.addEventListener("click", () => {
-        if (confirm("¿Eliminar este servidor de demostración?")) {
-          servers.splice(index, 1);
-          render();
+    #kika-host .kh-stat strong {
+      display: block;
+      margin-top: 10px;
+      color: #39ed91;
+      font-size: 23px;
+    }
+
+    #kika-host .kh-card {
+      background: #101a13;
+      border: 1px solid #244b32;
+      border-radius: 16px;
+      padding: 23px;
+      margin-bottom: 20px;
+    }
+
+    #kika-host .kh-card h3 {
+      margin-top: 0;
+    }
+
+    #kika-host .kh-card label {
+      display: block;
+      margin-top: 17px;
+      margin-bottom: 8px;
+      color: #c4d7ca;
+      font-size: 13px;
+    }
+
+    #kika-host .kh-card input,
+    #kika-host .kh-card select {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 14px;
+      background: #080f0a;
+      border: 1px solid #31563c;
+      color: white;
+      border-radius: 9px;
+      outline: none;
+    }
+
+    #kika-host .kh-primary {
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      background: #39ed91;
+      color: #06120a;
+      border: none;
+      border-radius: 9px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #kika-host .kh-primary:active {
+      opacity: .8;
+    }
+
+    #kika-host .kh-section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    #kika-host .kh-count {
+      color: #39ed91;
+      font-size: 12px;
+    }
+
+    #kika-host .kh-empty {
+      text-align: center;
+      padding: 35px 10px;
+    }
+
+    #kika-host .kh-empty span {
+      font-size: 40px;
+    }
+
+    #kika-host .kh-empty small {
+      color: #82968a;
+    }
+
+    #kika-host .kh-server {
+      background: #080f0a;
+      border: 1px solid #294d35;
+      padding: 17px;
+      border-radius: 12px;
+      margin-top: 13px;
+    }
+
+    #kika-host .kh-server-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    #kika-host .kh-server-name {
+      color: #39ed91;
+      font-weight: bold;
+    }
+
+    #kika-host .kh-server-status {
+      color: #f3d477;
+      font-size: 11px;
+    }
+
+    #kika-host .kh-server-actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    #kika-host .kh-server-actions button {
+      padding: 10px 13px;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #kika-host .kh-toggle {
+      background: #39ed91;
+      color: #06120a;
+    }
+
+    #kika-host .kh-delete {
+      background: #542525;
+      color: white;
+    }
+
+    #kika-host .kh-footer {
+      text-align: center;
+      padding: 25px 10px;
+      color: #39ed91;
+      font-size: 11px;
+    }
+
+    #kika-host .kh-footer p {
+      color: #82968a;
+    }
+
+    @media(max-width: 520px) {
+      #kika-host .kh-overview {
+        grid-template-columns: 1fr;
+      }
+
+      #kika-host .kh-top h2 {
+        font-size: 32px;
+      }
+
+      #kika-host .kh-card {
+        padding: 17px;
+      }
+    }
+  </style>
+
+  <script>
+    const KH = (() => {
+      let servers = [];
+
+      function render() {
+        const list = document.getElementById("kh-list");
+        if (!list) return;
+
+        const active = servers.filter(
+          server => server.active
+        ).length;
+
+        document.getElementById("kh-total").textContent =
+          servers.length;
+
+        document.getElementById("kh-active").textContent =
+          active;
+
+        document.getElementById("kh-count").textContent =
+          servers.length + (servers.length === 1
+            ? " servidor" : " servidores");
+
+        if (!servers.length) {
+          list.innerHTML = `
+            <div class="kh-empty">
+              <span>🎮</span>
+              <p>Todavía no tenés servidores.</p>
+              <small>Creá tu primer servidor para comenzar.</small>
+            </div>`;
+          return;
         }
-      });
 
-      actions.append(toggle, remove);
-      card.append(head, info, actions);
-      list.append(card);
-    });
-  }
+        list.replaceChildren();
 
-  function create() {
-    const input = document.getElementById("kh-name");
-    const name = input.value.trim();
+        servers.forEach((server, index) => {
+          const card = document.createElement("div");
+          card.className = "kh-server";
 
-    if (!name) {
-      alert("Escribí un nombre para el servidor.");
-      return;
-    }
+          const head = document.createElement("div");
+          head.className = "kh-server-head";
 
-    if (servers.length >= 5) {
-      alert("Límite de demostración: 5 servidores.");
-      return;
-    }
+          const name = document.createElement("span");
+          name.className = "kh-server-name";
+          name.textContent = server.name;
 
-    servers.push({
-      name,
-      active: false
-    });
+          const status = document.createElement("span");
+          status.className = "kh-server-status";
+          status.textContent = server.active
+            ? "ACTIVO (DEMO)" : "DETENIDO (DEMO)";
 
-    input.value = "";
-    render();
-  }
+          head.append(name, status);
 
-  return { create, render };
+          const info = document.createElement("p");
+          info.textContent = "Minecraft Bedrock";
 
-})();
+          const actions = document.createElement("div");
+          actions.className = "kh-server-actions";
 
-KH.render();
-</script>
+          const toggle = document.createElement("button");
+          toggle.className = "kh-toggle";
+          toggle.textContent = server.active
+            ? "DETENER (DEMO)" : "INICIAR (DEMO)";
 
-<!-- FIN KIKA HOST V1.0 -->
+          toggle.addEventListener("click", () => {
+            servers[index].active = !servers[index].active;
+            render();
+          });
+
+          const remove = document.createElement("button");
+          remove.className = "kh-delete";
+          remove.textContent = "ELIMINAR";
+
+          remove.addEventListener("click", () => {
+            if (confirm("¿Eliminar este servidor de demostración?")) {
+              servers.splice(index, 1);
+              render();
+            }
+          });
+
+          actions.append(toggle, remove);
+          card.append(head, info, actions);
+          list.append(card);
+        });
+      }
+
+      function create() {
+        const input = document.getElementById("kh-name");
+        const name = input.value.trim();
+
+        if (!name) {
+          alert("Escribí un nombre para el servidor.");
+          return;
+        }
+
+        if (servers.length >= 5) {
+          alert("Límite de demostración: 5 servidores.");
+          return;
+        }
+
+        servers.push({
+          name,
+          active: false
+        });
+
+        input.value = "";
+        render();
+      }
+
+      return { create, render };
+    })();
+
+    KH.render();
+  </script>
+
+  <!-- FIN KIKA HOST V1.0 -->
+
+</body>
+</html>
