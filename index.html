@@ -15,6 +15,201 @@
       box-sizing: border-box;
     }
 
+<!-- KIKA HOST - AUTH V1.1 -->
+<section id="kh-auth">
+  <div class="kh-auth-card">
+    <div class="kh-logo">KIKA HOST</div>
+    <p>Tu espacio de administración de servidores</p>
+
+    <form id="kh-form">
+      <input id="kh-email" type="email"
+        placeholder="Correo electrónico" required>
+
+      <input id="kh-password" type="password"
+        placeholder="Contraseña" minlength="6" required>
+
+      <button type="submit">Iniciar sesión</button>
+      <button type="button" id="kh-register">
+        Crear cuenta
+      </button>
+    </form>
+
+    <div id="kh-status" role="status" aria-live="polite"></div>
+
+    <div id="kh-session" hidden>
+      <p>Sesión iniciada</p>
+      <p id="kh-user"></p>
+      <button type="button" id="kh-logout">
+        Cerrar sesión
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+#kh-auth {
+  padding: 30px 14px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+#kh-auth .kh-auth-card {
+  box-sizing: border-box;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 25px;
+  background: #101914;
+  border: 1px solid #285a40;
+  border-radius: 18px;
+  text-align: center;
+}
+
+#kh-auth .kh-logo {
+  color: #55d98b;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+#kh-auth input,
+#kh-auth button {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin-top: 13px;
+  border-radius: 9px;
+  font-size: 15px;
+}
+
+#kh-auth input {
+  color: white;
+  background: #080e0a;
+  border: 1px solid #45634f;
+}
+
+#kh-auth button {
+  color: white;
+  background: #23834e;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#kh-auth #kh-status {
+  margin-top: 15px;
+  overflow-wrap: anywhere;
+}
+
+#kh-auth #kh-session {
+  margin-top: 15px;
+}
+</style>
+
+<script type="module">
+import { createClient } from
+  "https://esm.sh/@supabase/supabase-js@2";
+
+const SUPABASE_URL = "https://jdphiqxataaoiwuutohy.supabase.co/rest/v1/";
+const SUPABASE_KEY = "sb_publishable_zTzYtuzEDO48OUvIMIoChg_LmCsfkqa";
+
+const supabase = createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const form = document.getElementById("kh-form");
+const email = document.getElementById("kh-email");
+const password = document.getElementById("kh-password");
+const status = document.getElementById("kh-status");
+const sessionBox = document.getElementById("kh-session");
+const userLabel = document.getElementById("kh-user");
+
+function message(text) {
+  status.textContent = text;
+}
+
+async function updateSession() {
+  const { data, error } = await supabase.auth.getSession();
+
+  if (error) {
+    message("Error al comprobar la sesión.");
+    return;
+  }
+
+  const session = data.session;
+
+  sessionBox.hidden = !session;
+  form.hidden = !!session;
+
+  if (session) {
+    userLabel.textContent = session.user.email;
+  }
+}
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  message("Conectando...");
+
+  try {
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.value.trim(),
+      password: password.value
+    });
+
+    if (error) throw error;
+
+    message("¡Bienvenido a KIKA HOST!");
+    await updateSession();
+  } catch (error) {
+    message("No se pudo iniciar sesión: " + error.message);
+  }
+});
+
+document.getElementById("kh-register")
+  .addEventListener("click", async () => {
+    message("Creando cuenta...");
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: email.value.trim(),
+        password: password.value
+      });
+
+      if (error) throw error;
+
+      if (data.session) {
+        message("Cuenta creada correctamente.");
+        await updateSession();
+      } else {
+        message("Registro enviado. Revisá tu correo para confirmar.");
+      }
+    } catch (error) {
+      message("Error de registro: " + error.message);
+    }
+  });
+
+document.getElementById("kh-logout")
+  .addEventListener("click", async () => {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      message("No se pudo cerrar la sesión.");
+      return;
+    }
+
+    message("Sesión cerrada.");
+    await updateSession();
+  });
+
+supabase.auth.onAuthStateChange(() => {
+  updateSession();
+});
+
+updateSession();
+</script>
+<!-- FIN KIKA HOST AUTH V1.1 -->
+
     body {
       font-family: Arial, sans-serif;
       background: #080b12;
