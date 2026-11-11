@@ -5,7 +5,6 @@ const AUTH_CONTAINER_ID = "kh-auth";
 
 function showMessage(message, isError = false) {
   const element = document.getElementById("kh-auth-message");
-
   if (!element) return;
 
   element.textContent = message;
@@ -26,21 +25,19 @@ function renderAuth() {
       <h3>CUENTA KIKA HOST</h3>
       <p>Ingresá o creá tu cuenta para continuar.</p>
 
+      <button class="kh-primary" id="kh-google">
+        CONTINUAR CON GOOGLE
+      </button>
+
+      <hr>
+
       <label for="kh-auth-email">Correo electrónico</label>
-      <input
-        id="kh-auth-email"
-        type="email"
-        autocomplete="email"
-        placeholder="tu@email.com"
-      >
+      <input id="kh-auth-email" type="email"
+        autocomplete="email" placeholder="tu@email.com">
 
       <label for="kh-auth-password">Contraseña</label>
-      <input
-        id="kh-auth-password"
-        type="password"
-        autocomplete="current-password"
-        placeholder="Tu contraseña"
-      >
+      <input id="kh-auth-password" type="password"
+        autocomplete="current-password" placeholder="Tu contraseña">
 
       <button class="kh-primary" id="kh-login">
         INICIAR SESIÓN
@@ -60,9 +57,17 @@ function renderAuth() {
 
   host.querySelector(".kh-wrapper").prepend(container);
 
-  document.getElementById("kh-login").addEventListener("click", login);
-  document.getElementById("kh-register").addEventListener("click", register);
-  document.getElementById("kh-logout").addEventListener("click", logout);
+  document.getElementById("kh-google")
+    .addEventListener("click", loginGoogle);
+
+  document.getElementById("kh-login")
+    .addEventListener("click", login);
+
+  document.getElementById("kh-register")
+    .addEventListener("click", register);
+
+  document.getElementById("kh-logout")
+    .addEventListener("click", logout);
 }
 
 function getCredentials() {
@@ -82,6 +87,21 @@ function getCredentials() {
   return { email, password };
 }
 
+async function loginGoogle() {
+  showMessage("Conectando con Google...");
+
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: "https://7jrjjk7td7-cloud.github.io/Kika-Networks/"
+    }
+  });
+
+  if (error) {
+    showMessage(error.message, true);
+  }
+}
+
 async function login() {
   const credentials = getCredentials();
   if (!credentials) return;
@@ -96,7 +116,7 @@ async function login() {
   }
 
   showMessage("Sesión iniciada correctamente.");
-  updateAuthUI();
+  await updateAuthUI();
 }
 
 async function register() {
@@ -118,7 +138,7 @@ async function register() {
   }
 
   showMessage("Cuenta creada correctamente.");
-  updateAuthUI();
+  await updateAuthUI();
 }
 
 async function logout() {
@@ -130,7 +150,7 @@ async function logout() {
   }
 
   showMessage("Sesión cerrada.");
-  updateAuthUI();
+  await updateAuthUI();
 }
 
 async function updateAuthUI() {
@@ -145,6 +165,7 @@ async function updateAuthUI() {
 
   document.getElementById("kh-login").hidden = loggedIn;
   document.getElementById("kh-register").hidden = loggedIn;
+  document.getElementById("kh-google").hidden = loggedIn;
   document.getElementById("kh-logout").hidden = !loggedIn;
 
   document.getElementById("kh-auth-email").disabled = loggedIn;
@@ -157,11 +178,14 @@ async function updateAuthUI() {
 
 async function initAuth() {
   renderAuth();
-
   await updateAuthUI();
 
-  supabase.auth.onAuthStateChange(() => {
-    updateAuthUI();
+  supabase.auth.onAuthStateChange((event, session) => {
+    const loggedIn = Boolean(session?.user);
+
+    if (loggedIn) {
+      showMessage("Conectado como " + session.user.email);
+    }
   });
 }
 
